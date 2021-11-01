@@ -10,20 +10,23 @@ const eqArrays = function(arr1,arr2) {
   return true;
 };
 
-const assertArraysEqual = function(arr1, arr2) {
+function assertArraysEqual(arr1, arr2) {
   if (eqArrays(arr1, arr2)) {
     console.log(`Assertion passed: ${arr1} === ${arr2}`);
   } else {
     console.log(`Assertion failed: ${arr1} !== ${arr2}`);
   }
+}
+
+const letterPositions = function(sentence) {
+  const results = {};
+  // logic to update results here
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i] !== " ") {
+      results[sentence[i]] ? results[sentence[i]].push(i) : results[sentence[i]] = [i];
+    }
+  }
+  return results;
 };
 
-const middle = function(arr) {
-  if (arr.length <= 2) {
-    return [];
-  } else if (arr.length % 2 === 0) {
-    return [arr[Math.ceil(arr.length / 2) - 1], arr[Math.ceil(arr.length / 2)]];
-  } else {
-    return [arr[Math.floor(arr.length / 2)]];
-  }
-};
+console.log(letterPositions('hello'));
